@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 
-const SelectState = ({ pulledFormData, userObj, handleStates }) => {
+const SelectState = ({
+  pulledFormData,
+  userObj,
+  handleStates,
+  responseActive,
+}) => {
   const [active, setActive] = useState(false);
   const [selectedStates, setSelectedStates] = useState("");
 
@@ -43,6 +48,7 @@ const SelectState = ({ pulledFormData, userObj, handleStates }) => {
       </label>
 
       <button
+        tabIndex={responseActive ? -1 : 0}
         onClick={() => handleSelectActive()}
         aria-label="Occupation State"
         type="button"

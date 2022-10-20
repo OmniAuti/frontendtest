@@ -3,7 +3,7 @@ import FormButtons from "./FormButtons";
 import SelectOccupation from "./SelectOccupation";
 import SelectState from "./SelectState";
 
-const Form = ({ pulledFormData, postData }) => {
+const Form = ({ pulledFormData, postData, responseActive }) => {
   const [userObj, setUserObj] = useState({
     name: "",
     email: "",
@@ -38,7 +38,7 @@ const Form = ({ pulledFormData, postData }) => {
       state: "",
     });
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     await postData(userObj);
@@ -71,6 +71,7 @@ const Form = ({ pulledFormData, postData }) => {
             Full Name
           </label>
           <input
+            tabIndex={responseActive ? -1 : 0}
             type="text"
             name="name"
             id="name"
@@ -93,6 +94,7 @@ const Form = ({ pulledFormData, postData }) => {
             Email
           </label>
           <input
+            tabIndex={responseActive ? -1 : 0}
             type="email"
             name="email"
             id="email"
@@ -116,6 +118,7 @@ const Form = ({ pulledFormData, postData }) => {
           </label>
 
           <input
+            tabIndex={responseActive ? -1 : 0}
             type="password"
             name="password"
             id="password"
@@ -129,6 +132,7 @@ const Form = ({ pulledFormData, postData }) => {
 
         <div className="w-full relative group h-[50px] flex items-end">
           <SelectOccupation
+            responseActive={responseActive}
             handleOccupation={handleOccupation}
             userObj={userObj.occupation}
             pulledFormData={pulledFormData}
@@ -137,12 +141,16 @@ const Form = ({ pulledFormData, postData }) => {
 
         <div className="w-full relative group h-[50px] flex items-end mb-10">
           <SelectState
+            responseActive={responseActive}
             handleStates={handleStates}
             userObj={userObj.state}
             pulledFormData={pulledFormData}
           />
         </div>
-        <FormButtons handleClearForm={handleClearForm} />
+        <FormButtons
+          responseActive={responseActive}
+          handleClearForm={handleClearForm}
+        />
       </fieldset>
     </form>
   );

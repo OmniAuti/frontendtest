@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const SelectOccupation = ({ pulledFormData, userObj, handleOccupation }) => {
+const SelectOccupation = ({ pulledFormData, userObj, handleOccupation, responseActive }) => {
   const [active, setActive] = useState(false);
   const [selectedOccupation, setSelectedOccupation] = useState("");
 
@@ -41,6 +41,7 @@ const SelectOccupation = ({ pulledFormData, userObj, handleOccupation }) => {
         Choose Occupation
       </label>
       <button
+      tabIndex={responseActive ? -1 : 0}
         autoComplete="false"
         onClick={() => handleSelectActive()}
         aria-label="Occupation Select"

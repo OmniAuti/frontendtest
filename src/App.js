@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="App flex items-center justify-center h-screen min-h-[750px] bg-black overflow-hidden">
       <div className="bg-white rounded-md relative overflow-hidden">
-        <Form postData={postData} pulledFormData={pulledFormData} />
+        <Form responseActive={responseActive} postData={postData} pulledFormData={pulledFormData} />
         <User
           responseData={responseData}
           handleResponseActive={handleResponseActive}
