@@ -24,7 +24,7 @@ const User = ({ responseActive, handleResponseActive, responseData }) => {
         <p>Your new occupation, {responseData.occupation}, begins Monday when the sun comes up.</p>
         <p className="mt-2 underline underline-offset-1">Best of luck!</p>
         </div>
-        <button className="mb-5 cursor-pointer w-[30%] bg-blue-200 py-2 rounded-md text-center hover:bg-gradient-to-b hover:from-blue-200 hover:to-blue-500 hover:scale-105 transition-all duration-300 active:scale-95 focus:outline-blue-500" onClick={() => handleResponseActive()}>Create New User</button>
+        <button tabIndex={responseActive ? 0 : -1} className="mb-5 cursor-pointer w-[30%] bg-blue-200 py-2 rounded-md text-center hover:bg-gradient-to-b hover:from-blue-200 hover:to-blue-500 hover:scale-105 transition-all duration-300 active:scale-95 focus:outline-blue-500" onClick={() => handleResponseActive()}>Create New User</button>
       </div>
     </div>
   );
