@@ -20,7 +20,6 @@ function App() {
   };
 
   const postData = async (userInfo) => {
-    console.log(userInfo);
     await axios
       .post("https://frontend-take-home.fetchrewards.com/form", userInfo, {
         headers: {

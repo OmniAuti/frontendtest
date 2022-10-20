@@ -50,7 +50,7 @@ const SelectState = ({
       <button
         tabIndex={responseActive ? -1 : 0}
         onClick={() => handleSelectActive()}
-        aria-label="Occupation State"
+        aria-label="State Select"
         type="button"
         name="states"
         id="states"
