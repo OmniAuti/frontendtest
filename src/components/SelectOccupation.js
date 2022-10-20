@@ -1,6 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
-const SelectOccupation = ({ pulledFormData, userObj, handleOccupation, responseActive }) => {
+const SelectOccupation = ({
+  pulledFormData,
+  userObj,
+  handleOccupation,
+  responseActive,
+}) => {
   const [active, setActive] = useState(false);
   const [selectedOccupation, setSelectedOccupation] = useState("");
 
@@ -41,7 +46,7 @@ const SelectOccupation = ({ pulledFormData, userObj, handleOccupation, responseA
         Choose Occupation
       </label>
       <button
-      tabIndex={responseActive ? -1 : 0}
+        tabIndex={responseActive ? -1 : 0}
         autoComplete="false"
         onClick={() => handleSelectActive()}
         aria-label="Occupation Select"
@@ -62,10 +67,15 @@ const SelectOccupation = ({ pulledFormData, userObj, handleOccupation, responseA
         {pulledFormData.occupations &&
           pulledFormData.occupations.map((job) => (
             <li
+              aria-selected={selectedOccupation === job ? true : false}
               onClick={(e) => handleSelectOccupation(e)}
               key={job}
               role="option"
-              className="py-2 cursor-pointer hover:bg-slate-100 px-2"
+              className={
+                selectedOccupation === job
+                  ? "py-2 cursor-pointer hover:bg-slate-100 px-2 bg-slate-200"
+                  : "py-2 cursor-pointer hover:bg-slate-100 px-2"
+              }
             >
               {job}
             </li>

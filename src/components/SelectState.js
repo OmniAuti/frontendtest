@@ -68,10 +68,11 @@ const SelectState = ({
         {pulledFormData.states &&
           pulledFormData.states.map((state) => (
             <li
+              aria-selected={selectedStates === state.name ? true : false}
               onClick={(e) => handleSelectState(e)}
               key={state.abbreviation}
               role="option"
-              className="py-2 cursor-pointer hover:bg-slate-100 px-2"
+              className={selectedStates === state.name ? "py-2 cursor-pointer hover:bg-slate-100 px-2 bg-slate-200" : "py-2 cursor-pointer hover:bg-slate-100 px-2"}
             >
               {state.name}
             </li>
