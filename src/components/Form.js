@@ -41,8 +41,7 @@ const Form = ({ pulledFormData, postData, responseActive }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(userObj)
-    // await postData(userObj);
+    await postData(userObj);
     setUserObj({
       name: "",
       email: "",
